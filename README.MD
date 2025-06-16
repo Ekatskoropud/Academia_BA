@@ -1,2 +1,2 @@
 # Descripción de la estructura de archivos de la página
-Esta página contiene información sobre los proyectos completados en el curso de formación Bootcamp en Barcelona Asset IT Academy. Todos los deberes completados empiezan con la palabra 'tarea' y el número del sprint. 
+Esta página contiene información sobre los proyectos completados en el curso de formación Bootcamp en Barcelona Activa IT Academy. Todos los deberes completados empiezan con la palabra 'tarea' y el número del sprint. 
