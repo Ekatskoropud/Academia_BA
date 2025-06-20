@@ -3,12 +3,19 @@ Select * from company;
 
 #Llistat dels països que estan generant vendes
 SELECT country FROM company 
-INNER JOIN transaction on company.id=transaction.company_id 
+INNER JOIN transaction ON company.id = transaction.company_id 
 GROUP BY country; 
 
 #Des de quants països es generen les vendes
 SELECT COUNT(DISTINCT country) FROM company 
 INNER JOIN transaction ON company.id=transaction.company_id;
+
+#Identifica a la compañía con la mayor media de ventas
+SELECT company.company_name, AVG(transaction.amount) as 'media ventas' FROM company
+JOIN transaction ON company.id = transaction.company_id
+GROUP BY company_name
+ORDER BY 'media ventas' DESC 
+LIMIT 1;
 
 #Mostra totes les transaccions realitzades per empreses d'Alemanya.
 SELECT * FROM transaction WHERE company_id IN 
@@ -32,10 +39,10 @@ LIMIT 5;
 
 #Quina és la mitjana de vendes per país? Presenta els resultats ordenats de major a menor mitjà.
 
-SELECT company.country, AVG(transaction.amount) as 'mitjá' FROM company
+SELECT company.country, AVG(transaction.amount) as 'mitjana' FROM company
 JOIN transaction ON company.id=transaction.company_id
 GROUP BY country
-order by mitjá DESC;
+order by mitjana DESC;
 
 #En la teva empresa, es planteja un nou projecte per a llançar algunes campanyes publicitàries per a fer competència a la companyia "Non Institute". Per a això, et demanen la llista de totes les transaccions realitzades per empreses que estan situades en el mateix país que aquesta companyia
 #SELECT country FROM company WHERE company_name LIKE 'Non Institute'; #UK
@@ -63,4 +70,4 @@ SELECT company.company_name, COUNT(transaction.id) as 'Número de transacciones'
 END as categoria
 FROM company
 JOIN transaction ON company.id=transaction.company_id
-GROUP BY company.company_name
+GROUP BY company.company_name;
